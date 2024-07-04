@@ -82,8 +82,9 @@ public class MyDLL<E> implements ListADT<E> {
     @Override
     public boolean addAll(ListADT<? extends E> toAdd) {
         if (toAdd == null) throw new NullPointerException();
-        for (E element : toAdd) {
-            add(element);
+        Iterator<? extends E> iterator = toAdd.iterator();
+        while (iterator.hasNext()) {
+            add(iterator.next());
         }
         return true;
     }
