@@ -179,7 +179,8 @@ public class MyDLL<E> implements ListADT<E> {
         return false;
     }
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public E[] toArray(E[] toHold) {
         if (toHold == null) throw new NullPointerException();
         if (toHold.length < size) {

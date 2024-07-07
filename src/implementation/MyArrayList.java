@@ -14,7 +14,8 @@ public class MyArrayList<E> implements ListADT<E>, Serializable {
     private int size;
 
     // Constructor to initialize the array with default capacity
-    public MyArrayList() {
+    @SuppressWarnings("unchecked")
+	public MyArrayList() {
         this.elements = (E[]) new Object[DEFAULT_CAPACITY];
         this.size = 0;
     }
@@ -154,7 +155,8 @@ public class MyArrayList<E> implements ListADT<E>, Serializable {
             throw new NullPointerException("Array cannot be null");
         }
         if (toHold.length < size) {
-            E[] newArray = (E[]) new Object[size];
+            @SuppressWarnings("unchecked")
+			E[] newArray = (E[]) new Object[size];
             for (int i = 0; i < size; i++) {
                 newArray[i] = elements[i];
             }
@@ -192,7 +194,8 @@ public class MyArrayList<E> implements ListADT<E>, Serializable {
             if (newCapacity < minCapacity) {
                 newCapacity = minCapacity;
             }
-            E[] newElements = (E[]) new Object[newCapacity];
+            @SuppressWarnings("unchecked")
+			E[] newElements = (E[]) new Object[newCapacity];
             for (int i = 0; i < size; i++) {
                 newElements[i] = elements[i];
             }
